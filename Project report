@@ -1,0 +1,46 @@
+# Project Report: Basic Bank System Implementation
+
+## 1. Project Overview
+
+The Basic Bank System is a lightweight Java application designed to simulate core banking operations. It demonstrates fundamental object-oriented programming principles, including encapsulation, class relationships, and data management using Java Collections.
+
+## 2. System Architecture
+
+The application is structured around three primary classes contained within the `Basic_Bank_System.java` file.
+
+| Class Name | Responsibility |
+| --- | --- |
+| **Account** | Represents the data model for a single bank account, encapsulating the account number, customer name, and financial balance.
+
+ |
+| **Bank** | Serves as the management system, utilizing a `HashMap` to store and retrieve multiple `Account` objects based on their unique account numbers.
+
+ |
+| **BankingSystem** | Contains the `main` execution method to initialize the system, populate test data, and simulate transactions.
+
+ |
+
+## 3. Core Functionality
+
+The system currently supports the following banking operations:
+
+* **Account Initialization:** New accounts are registered in the system by providing a unique string for the account number, a string for the customer name, and a double for the starting balance.
+
+
+* **Transaction Processing (Deposits):** The `performTransaction` method allows funds to be added to an existing account. It retrieves the account via its number and invokes the `deposit` method to increase the balance.
+
+
+* **Account Information Retrieval:** The `displayAccountInfo` method queries the internal memory map to print the associated account number, customer name, and current balance to the console.
+
+
+* **Basic Error Handling:** If a transaction or inquiry is attempted on an account number that does not exist in the map, the system outputs an "Account not found!" error message instead of crashing.
+
+
+
+## 4. Implementation Details
+
+The system leverages Java's `java.util.HashMap` and `java.util.Map` libraries to handle the in-memory storage of accounts. This provides highly efficient time complexity for account lookups during transactions and inquiries.
+
+Data integrity is maintained through encapsulation. The data fields within the `Account` class (`accountNumber`, `customerName`, `balance`) are declared as `private` to enforce strict access control. This ensures that the financial balance can only be modified through the official `deposit` method, preventing unauthorized overwrites of customer funds.
+
+This initial build provides a robust, foundational architecture for a banking simulation. Future iterations can expand upon this framework by integrating withdrawal capabilities with insufficient funds checking, persistent database storage, and a user-facing interactive command-line interface utilizing the already-imported `java.util.Scanner` class.
